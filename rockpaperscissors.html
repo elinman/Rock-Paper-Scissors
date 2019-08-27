@@ -2,9 +2,79 @@
 <html>
 <head></head>
 <body>
+    <button>Lets Play RPS</button>
     <script> 
-    <p>
-    
+        function computerPlay() {
+            let play; 
+            let computerResult = Math.floor(Math.random() * 3)
+                if (computerResult == 0) {
+                    play = 'Rock';
+                }
+                if (computerResult == 1) {
+                    play = 'Paper';
+                }
+                if (computerResult == 2) {
+                    play = 'Scissors';
+                }        
+                return play;
+        }
+        function playRound (playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+            let playerCaseInsensitiveChoice = prompt ('Choose ',"");
+            let playerAllLowercaseSelection = playerCaseInsensitiveChoice.toLowerCase();
+            playerSelection = playerAllLowercaseSelection.charAt(0).toUpperCase() + playerAllLowercaseSelection.slice(1);
+                if (playerSelection == 'Rock' && computerSelection == 'Rock') {
+                    alert("Tie game! Try again")
+                }
+                if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+                    alert("You Lose, Paper Beats Rock!");
+                    computerScore = (computerScore + 1)
+                }
+                if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+                    alert("You Win! Rock beats Scissors");
+                    playerScore = (playerScore + 1)
+                }
+                if (playerSelection == 'Paper' && computerSelection == 'Paper') {
+                    alert("Tie game! Try again")
+                }
+                if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+                    alert("You Win! Paper beats rock");
+                    playerScore = (playerScore + 1)
+                }
+                if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+                    alert("You Lose, Scissors beats paper!");
+                    computerScore = (computerScore + 1)
+                }
+                if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
+                    alert("Tie Game! Try again")
+                }
+                if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+                    alert("You Win! Scissors beats paper");
+                    playerScore = (playerScore + 1)
+                }
+                if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+                    alert("You Lose, Rock beats Scissors");
+                    computerScore = (computerScore + 1)
+                }
+        }
+        function game () {
+            playerScore = 0;
+            computerScore = 0;
+
+            playRound ();
+            playRound ();
+            playRound ();
+            playRound ();
+            playRound ();
+
+            if (computerScore > playerScore) {
+                alert("You SUCK you got " + playerScore + " points and the computer got " + computerScore + " points :(")
+            }
+            if (playerScore > computerScore) {
+                alert("You ROCK you got " + playerScore + " points and the computer got " + computerScore + " points!")
+            }
+        }
+
         
      </script>
 </body> 
